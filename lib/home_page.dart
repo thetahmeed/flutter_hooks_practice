@@ -67,6 +67,17 @@ class HomePage extends HookWidget {
     final animation = useAnimation(
       Tween<double>(begin: 1.0, end: 1.5).animate(controller),
     );
+
+    // Bonus: TextEditingController with useTextEditingController
+    final myController = useTextEditingController(text: "Flutter Hooks");
+    useListenable(myController);
+    // What is useListenable(myController)?
+    // By default, when you type in a text box, the "Smart Pen" knows
+    // the text changed, but it doesn't tell the screen to "Re-draw."
+    // Adding useListenable(myController) tells the Hook: "Hey, every
+    // time a letter is typed, refresh this widget so I can show the
+    // text on the screen immediately!"
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
