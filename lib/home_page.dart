@@ -116,6 +116,23 @@ class HomePage extends HookWidget {
             scale: animation, // animation value changes smoothly over time
             child: Icon(Icons.favorite, color: Colors.pink, size: 50),
           ),
+
+          // ========== BONUS UI: TextField with Controller ==========
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              controller: myController,
+              decoration: InputDecoration(
+                labelText: "Type something here...",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          // This shows what you typed in real-time!
+          Text(
+            "You are typing: ${myController.text}",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );
